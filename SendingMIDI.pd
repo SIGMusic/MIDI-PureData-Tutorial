@@ -1,29 +1,43 @@
 #N canvas 173 131 1022 584 10;
 #X obj 40 238 noteout;
-#X obj 641 491 ctlout;
+#X obj 477 446 ctlout;
 #X text 42 35 noteout takes MIDI note number (0 - 127) \, velocity
 \, channel number;
-#X text 368 122 ctlout takes in control changes such as program change
+#X text 463 467 ctlout takes in control changes such as program change
 and bank select;
 #X msg 39 68 60 100 1;
 #X msg 57 98 60 0 1;
 #X msg 73 134 80 100 1;
 #X msg 77 170 80 0 1;
-#X text 700 483 (Control Value \, Control Number \, Channel Number)
+#X text 536 443 (Control Value \, Control Number \, Channel Number)
 ;
-#X text 315 168;
-#X msg 478 268 0 12 1;
-#X msg 554 268 47 12 1;
-#X text 363 222 program changes (voice number \, indicate program change
-\, channel);
-#X text 717 298 bank select -must set LSB/MSB as different events;
-#X msg 715 348 63 0 1;
-#X msg 728 375 1 32 1;
+#X text 487 245 bank select -must set LSB/MSB as different events;
+#X msg 551 303 63 0 1;
+#X msg 564 330 1 32 1;
+#X obj 567 278 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 757 361 0 32 1;
+#X obj 781 329 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 759 392 0 0 1;
+#X obj 598 176 pgmout;
+#X msg 578 82 0 1;
+#X msg 654 82 47 1;
+#X text 463 36 program changes (voice number \, channel number);
+#X text 647 175 pgmut takes program changes;
+#X text 822 334 default bank select;
+#X text 594 282 bank select option for a Yamha m06 keyboard;
 #X connect 4 0 0 0;
 #X connect 5 0 0 0;
 #X connect 6 0 0 0;
 #X connect 7 0 0 0;
 #X connect 10 0 1 0;
 #X connect 11 0 1 0;
-#X connect 14 0 1 0;
+#X connect 12 0 10 0;
+#X connect 12 0 11 0;
+#X connect 13 0 1 0;
+#X connect 14 0 13 0;
+#X connect 14 0 15 0;
 #X connect 15 0 1 0;
+#X connect 17 0 16 0;
+#X connect 18 0 16 0;
